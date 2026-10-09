@@ -17,3 +17,6 @@ const divide = function (a,b) {
 
 //console.log(divide(12,2));
 
+const a = firstInput;
+const userOperator = secondInput;
+const b = thirdInput;
