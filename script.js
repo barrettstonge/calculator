@@ -46,10 +46,18 @@ const body = document.body;
 const result = document.createElement("span");
 result.id = "result";
 
+
 display.appendChild(result);
 
 const results = document.getElementById('display');
 results.textContent = 0;
+
+const buttons = document.querySelectorAll("mainContainer");
+
+
+
+
+
 
 
 
