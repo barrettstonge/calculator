@@ -161,9 +161,7 @@ operatorButtons.appendChild(clear);
 
 operate(4,5);*/
 
-let a = '';
-let b = '';
-let currentOperator = '';
+
 
 let result = document.createElement("span");
 result.id = "result";
@@ -187,9 +185,11 @@ buttons.forEach((button) => {
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => { 
     let a = results.innerText;
+    let curentOperator = event.target.textContent;
     if(event.target.textContent === '+' | event.target.textContent === '-' | event.target.textContent === '/' | event.target.textContent === '*')
      results.innerText = '';
     console.log(a); 
+    console.log(curentOperator);
 
   });
 });
@@ -199,6 +199,10 @@ buttons.forEach((button) => {
     if(event.target.textContent === 'CLEAR')
     return results.innerText = ''; 
   });
+  button.addEventListener('dblclick', (event) => {
+    return a = ''; b = ''; currentOperator = '';
+    console.log(a ,b, currentOperator);
+  })
 });
 
 buttons.forEach((button) => {
