@@ -14,118 +14,130 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
   align-content: stretch;
-  border: 25px;
-  border-color: black;
+  padding: 1px;
 }
 
 .result {
   display: flex;
   align-items: end;
   justify-content: end;
-
-  max-width: 160px;
+  max-width: 100px;
+  min-height: 20px;
 }
 
-.numberButtons {
+#numberButtons {
   display: flex;
-
+ 
+  justify-content: space-around;
   flex-wrap: wrap;
-  flex: auto;
-  max-width: 80px;
-  padding: 5px;
-  margin: 1px;
+ 
+
+
+
+  
 }
 
-.operatorButtons {
+#operatorButtons {
   display: flex;
-
-  flex-direction: column-reverse;
+  max-width: 40px;
   flex-wrap: wrap;
-  flex: auto;
-  max-height: 80px;
-  padding: 5px;
-  margin: 1px;
-}
-.zero {
-  border: 1px solid black;
-  border-radius: 0.5pc;
+  justify-content: space-around;
+ 
+ 
+ 
+  
 }
 
-.one{
-  border: 1px solid black;
+#zero {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
+  
+  
 }
 
-.two{
-  border: 1px solid black;
-  border-radius: 0.5pc;
-}
-
-.three {
-  border: 1px solid black;
+#one {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
 }
 
-.four {
-  border: 1px solid black;
+#two {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
 }
 
-.five {
-  border: 1px solid black;
+#three {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
 }
 
-.six {
-  border: 1px solid black;
+#four {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
 }
 
-.seven {
-  border: 1px solid black;
+#five {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
 }
 
-.eight {
-  border: 1px solid black;
+#six {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
 }
 
-.nine {
-  border: 1px solid black;
+#seven {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
 }
 
-.plus {
-  border: 1px solid black;
-  border-radius: 0.5pc;}
-
-  .minus {
-    border: 1px solid black;
+#eight {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
-  }
+}
 
-  .divide {
-    border: 1px solid black;
+#nine {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
-  }
+}
 
-  .multiply {
-    border: 1px solid black;
+#plus {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
-  }
+}
 
-  .equals {
-    border: 1px solid black;
+#minus {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
-  }
+}
 
-  .clear {
-    border: 1px solid black;
+#divide {
+  border: 1px solid lightgray;
   border-radius: 0.5pc;
-  }
+}
+
+#multiply {
+ border: 1px solid lightgray;
+  border-radius: 0.5pc;
+}
+
+.equals {
+  border: 1px solid lightgray;
+  border-radius: 0.5pc;
+}
+
+.clear {
+  border: 1px solid lightgray;
+  border-radius: 0.5pc;
+  max-width: 40px;
+  min-height: 20px;
+  font-size: 7px;
+  font-weight: bold;
+  
+  
+}
+
+
 
 .calculatorChasis {
   display: flex;
@@ -135,8 +147,8 @@ body {
   padding-bottom: 10px;
   padding-left: 5px;
   padding-right: 5px;
-  background-color: orange;
-  max-width: 180px;
+  background-color: orangered;
+  max-width: 120px;
   border: 1px solid black;
   border-radius: 0.5pc;
 }
@@ -146,5 +158,5 @@ body {
   border: 1px solid black;
   border-radius: 0.25pc;
   padding: 5px;
-  min-width: 140px;
+  min-width: 100px;
 }
