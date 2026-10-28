@@ -186,8 +186,11 @@ buttons.forEach((button) => {
 
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => { 
+    let a = results.innerText;
     if(event.target.textContent === '+' | event.target.textContent === '-' | event.target.textContent === '/' | event.target.textContent === '*')
-    return console.log(event.target.textContent); 
+     results.innerText = '';
+    console.log(a); 
+
   });
 });
 
