@@ -161,7 +161,10 @@ operatorButtons.appendChild(clear);
 
 operate(4,5);*/
 
-
+let a = '';
+let b = '';
+let currentOperator = '';
+let step = 1;
 
 let result = document.createElement("span");
 result.id = "result";
@@ -174,42 +177,62 @@ results.textContent = '';
 
 const buttons = document.querySelectorAll('.mainContainer');
 
-buttons.forEach((button) => {
-  button.addEventListener('click', (event) => { 
-    if(event.target.textContent === 0 | event.target.textContent <10)
-     // 'event.target' refers to the exact button that was clicked
-    return results.innerText += event.target.textContent; 
-  });
-});
+function dataCollections() {
+    if (step === 1) {
+        a = results.textContent;
+        display.textContent = "";
+        step = 2;
+    } else if (step === 2) {
+        currentOperator = results.textContent;
+        display.textContent = "";
+        step = 3;
+    } else if (step === 3) {
+        c = results.textContent;
+        display.textContent = "";
+        // All three values are now securely saved in separate variables
+        
+    }
+};
 
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => { 
-    let a = results.innerText;
-    let curentOperator = event.target.textContent;
+   
+    if(event.target.textContent === 0 | event.target.textContent <10|event.target.textContent === '+' | event.target.textContent === '-' | event.target.textContent === '/' | event.target.textContent === '*')
+     // 'event.target' refers to the exact button that was clicked
+    return  results.innerText += event.target.textContent; dataCollections();
+
+    
+    
+  });
+});
+
+
+
+/*
+buttons.forEach((button) => {
+  button.addEventListener('click', (event) => { 
+     a = results.innerText;
+     currentOperator = event.target.textContent;
     if(event.target.textContent === '+' | event.target.textContent === '-' | event.target.textContent === '/' | event.target.textContent === '*')
      results.innerText = '';
-    console.log(a); 
-    console.log(curentOperator);
+    return console.log({a, currentOperator}); 
+    
+    
 
   });
-});
+});*/
 
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => { 
     if(event.target.textContent === 'CLEAR')
-    return results.innerText = ''; 
+    return results.textContent = ''; 
   });
-  button.addEventListener('dblclick', (event) => {
-    return a = ''; b = ''; currentOperator = '';
-    console.log(a ,b, currentOperator);
-  })
 });
 
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => { 
     if(event.target.textContent === '=')
-      return console.log("=");
-    //return (insert operate function); 
+      return console.log({ a, currentOperator, b }); 
   });
 });
 
@@ -221,7 +244,27 @@ buttons.forEach((button) => {
 
   
 
-      
+/*
+
+
+function dataCollections() {
+    if (step === 1) {
+        a = results.textContent;
+        display.textContent = "";
+        step = 2;
+    } else if (step === 2) {
+        currentOperator = results.textContent;
+        display.textContent = "";
+        step = 3;
+    } else if (step === 3) {
+        c = results.textContent;
+        display.textContent = "";
+        // All three values are now securely saved in separate variables
+        console.log({ firstValue, secondValue, thirdValue });
+    }
+}
+
+*/
 
 
 
