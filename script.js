@@ -1,36 +1,3 @@
-/*
-
-const add = function (a, b) {
-  return a + b;
-};
-
-//console.log(add(1,1));
-const subtract = function (a, b) {
-  return a - b;
-};
-//console.log(subtract(1,1));
-const multiply = function (a,b) {
-  return a * b;
-};
-//console.log(multiply([9,2]));
-const divide = function (a,b) {
-    return a / b;
-};
-
-*/
-
-
-  /* const operators = {
-  '+': (a, b) => a + b,
-  '-': (a, b) => a - b,
-  '*': (a, b) => a * b,
-  '/': (a, b) => a / b
-  */
-
-//console.log(divide(12,2));
-
-
-
 
 
 const body = document.body;
@@ -47,60 +14,70 @@ const zero = document.createElement('button');
 zero.id = 'zero';
 zero.className = 'numberButtons';
 zero.innerHTML = '0';
+zero.value = 0 ;
 numberButtons.appendChild(zero);
 
 const one = document.createElement('button');
 one.id = 'one';
 one.className = 'numberButtons';
 one.innerHTML = '1'
+one.value = 1;
 numberButtons.appendChild(one);
 
 const two = document.createElement('button');
 two.id = 'two';
 two.className = 'numberButtons';
 two.innerHTML = '2';
+two.value = 2;
 numberButtons.appendChild(two);
 
 const three = document.createElement('button');
 three.id = 'three';
 three.className = 'numberButtons';
 three.innerHTML = "3";
+three.value = 4;
 numberButtons.appendChild(three);
 
 const four = document.createElement('button');
 four.id = 'four';
 four.className = 'numberButtons';
 four.innerHTML = '4';
+four.value = 4;
 numberButtons.appendChild(four);
 
 const five = document.createElement('button');
 five.id = 'five';
 five.className = 'numberButtons';
 five.innerHTML = '5';
+five.value = 5;
 numberButtons.appendChild(five);
 
 const six = document.createElement('button');
 six.id = 'six';
 six.className = 'numberButtons';
 six.innerHTML = '6';
+six.value = 6;
 numberButtons.appendChild(six);
 
 const seven = document.createElement('button');
 seven.id = "seven";
 seven.className = 'numberButtons';
 seven.innerHTML = '7';
+seven.value = 7;
 numberButtons.appendChild(seven);
 
 const eight = document.createElement('button');
 eight.id = 'eight';
 eight.className = 'numberButtons';
 eight.innerHTML = "8";
+eight.value = 8;
 numberButtons.appendChild(eight);
 
 const nine = document.createElement('button');
 nine.id = 'nine';
 nine.className = 'numberButtons';
 nine.innerHTML = '9';
+nine.value = 9;
 numberButtons.appendChild(nine);
 
 const operatorButtons = document.createElement("div");
@@ -145,27 +122,6 @@ clear.innerHTML = 'CLEAR';
 operatorButtons.appendChild(clear);
 
 
-
-/*function operate(a,b){
-   
-
-    let curentOperator = add(a,b);
-
-    
-
-    return console.log(curentOperator);
-   
-
-    
-};
-
-operate(4,5);*/
-
-let a = '';
-let b = '';
-let currentOperator = '';
-let step = 1;
-
 let result = document.createElement("span");
 result.id = "result";
 
@@ -173,99 +129,36 @@ result.id = "result";
 display.appendChild(result);
 
 let results = document.getElementById('display');
-results.textContent = '';
+results.value = '';
 
 const buttons = document.querySelectorAll('.mainContainer');
 
-function dataCollections() {
-    if (step === 1) {
-        a = results.textContent;
-        display.textContent = "";
-        step = 2;
-    } else if (step === 2) {
-        currentOperator = results.textContent;
-        display.textContent = "";
-        step = 3;
-    } else if (step === 3) {
-        c = results.textContent;
-        display.textContent = "";
-        // All three values are now securely saved in separate variables
-        
-    }
-};
+const maxDigits = 11;
 
-buttons.forEach((button) => {
-  button.addEventListener('click', (event) => { 
-   
-    if(event.target.textContent === 0 | event.target.textContent <10|event.target.textContent === '+' | event.target.textContent === '-' | event.target.textContent === '/' | event.target.textContent === '*')
-     // 'event.target' refers to the exact button that was clicked
-    return  results.innerText += event.target.textContent; dataCollections();
+buttons.forEach((button) => {button.addEventListener( 'click', (event)=>{
+  const currentDigits = display.textContent.replace(/[^0-9]/g, '').length;
+  if (currentDigits < maxDigits && event.target.innerHTML === 0 | event.target.innerHTML < 10){
+     
+    return results.innerText += event.target.value; 
+  };
 
-    
-    
-  });
-});
+})});
 
 
 
-/*
-buttons.forEach((button) => {
-  button.addEventListener('click', (event) => { 
-     a = results.innerText;
-     currentOperator = event.target.textContent;
-    if(event.target.textContent === '+' | event.target.textContent === '-' | event.target.textContent === '/' | event.target.textContent === '*')
-     results.innerText = '';
-    return console.log({a, currentOperator}); 
-    
-    
 
-  });
-});*/
-
-buttons.forEach((button) => {
-  button.addEventListener('click', (event) => { 
-    if(event.target.textContent === 'CLEAR')
-    return results.textContent = ''; 
-  });
-});
-
-buttons.forEach((button) => {
-  button.addEventListener('click', (event) => { 
-    if(event.target.textContent === '=')
-      return console.log({ a, currentOperator, b }); 
-  });
-});
-
-
-
+  /*function calculate(a, b, currentOperator)  {
+  if (currentOperator === '+') return a + b;
+  if (currentOperator === '-') return a - b;
+  if (currentOperator === '*') return a * b;
+  if (currentOperator === '/') return a / b;
+    return b;
+  }*/
 
 
 
 
   
-
-/*
-
-
-function dataCollections() {
-    if (step === 1) {
-        a = results.textContent;
-        display.textContent = "";
-        step = 2;
-    } else if (step === 2) {
-        currentOperator = results.textContent;
-        display.textContent = "";
-        step = 3;
-    } else if (step === 3) {
-        c = results.textContent;
-        display.textContent = "";
-        // All three values are now securely saved in separate variables
-        console.log({ firstValue, secondValue, thirdValue });
-    }
-}
-
-*/
-
 
 
 
