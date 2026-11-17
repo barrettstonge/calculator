@@ -135,25 +135,71 @@ const buttons = document.querySelectorAll('.mainContainer');
 
 const maxDigits = 11;
 
+let step = 1;
+let a = '';
+let b = '';
+let currentOperator = '';
+let nextValueShouldResetDisplay = false;
+
 buttons.forEach((button) => {button.addEventListener( 'click', (event)=>{
   const currentDigits = display.textContent.replace(/[^0-9]/g, '').length;
-  if (currentDigits < maxDigits && event.target.innerHTML === 0 | event.target.innerHTML < 10){
+  if (currentDigits < maxDigits && event.target.innerHTML === 0 || event.target.innerHTML < 10){
      
     return results.innerText += event.target.value; 
   };
 
 })});
 
+buttons.forEach((button) => {
+  button.addEventListener('click', (event) => { 
+    if(event.target.textContent === 'CLEAR')
+    return results.innerText = ''; 
+  })});
+
+
+  buttons.forEach((button) => {
+  button.addEventListener('dblclick', (event) => { 
+    if(event.target.textContent === 'CLEAR')
+     {results.innerText = ''; a = ''; b = ''; currentOperator = ''; step = 1; nextValueShouldResetDisplay = true; }
+  })});
+
+
+buttons.forEach((button) => {
+  button.addEventListener('click', (event) =>{
+    if(event.target.textContent === '+' || event.target.textContent === '-' || event.target.textContent === '/' || event.target.textContent === '*'  ){
+       currentOperator = event.target.textContent; 
+       a = results.innerText;
+       nextValueShouldResetDisplay = true;
+       results.innerText = '';
+      
+
+    }})});
+
+    buttons.forEach((button) => {
+  button.addEventListener('click', (event) =>{
+    nextValueShouldResetDisplay = false;
+    if( event.target.innerText === '='  ){
+      
+      b = results.innerText;
+      console.log(a,b, currentOperator);
+     
+      
+    }})});
+
+  
+
+  
+  //dataCollection will be a 3 step function to collect a,b,and currentOperator. the function will be activated with pressing +,-,*,/
 
 
 
-  /*function calculate(a, b, currentOperator)  {
-  if (currentOperator === '+') return a + b;
-  if (currentOperator === '-') return a - b;
-  if (currentOperator === '*') return a * b;
-  if (currentOperator === '/') return a / b;
-    return b;
-  }*/
+  function operate(a, b, currentOperator)  {
+  if (currentOperator === '+') return (number(a) + number(b));
+  if (currentOperator === '-') return (number(a) - numebr(b));
+  if (currentOperator === '*') return (number(a) * number(b));
+  if (currentOperator === '/') return (number(a) / number(b));
+    
+  };
 
 
 
